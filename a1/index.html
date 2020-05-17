@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message List</title>
+    <link rel="stylesheet" type="text/css" href="messageList.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+          <a class="nav-item" id="showAbout" href="#0">About</a>
+          <a class="nav-item" id="showContent" href="#0">Message</a>
+        </div>
+    </nav>
+    
+    <div id = "content">
+       <form>
+           <h3>Messages </h3>
+           <input id="messagefield" type="text" placeholder="Add New Message">
+           <Button type="submit" id="add">Add</Button>  
+           <Button id="clear">Clear</Button>
+       </form>
+       <ul id="messages">
+       </ul>
+       <Button id="deleteall">Delete All</Button>
+    </div>
+
+    <div id = "about">
+       <p> Introduction </p>
+    </div>    
+
+<script type="text/javascript", src="message.js"> </script> 
+</body>
+</html>
