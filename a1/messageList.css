@@ -1,10 +1,11 @@
 .navbar {
-    background-color: bisque;
+	background-color: bisque;
 }
 
 .nav-item {
-    margin-right: 10rem;
-    
+	margin-left: 20%;
+	margin-right: 20%;
+	font-size: 25px;
 }
 
 #content{
@@ -17,7 +18,7 @@
 
 
  body {
-	font-family: Roboto;
+  font-family: Roboto;
   background: -webkit-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* Chrome 10+, Saf5.1+ */
   background:    -moz-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* FF3.6+ */
   background:     -ms-linear-gradient(90deg, #2BC0E4 10%, #EAECC6 90%); /* IE10 */
@@ -42,33 +43,33 @@ h1 {
 	font-weight: normal;
 }
 
-.fa-plus {
-	float: right;
+button{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
 }
 
 li {
 	background: #fff;
 	height: 40px;
 	line-height: 40px;
-    color: #666;
-    
+	color: #666;
+	animation-name: slidein;
+	animation-duration: 1s;
+	font-size: 24px;
+	text-indent: 2%;
 }
 
-li span {
-	background: #e74c3c;
-	height: 40px;
-	margin-right: 20px;
-	text-align: center;
-	color: white;
-	width: 0;
-	display: inline-block;
-	transition: 0.2s linear;
-	opacity: 0;
-}
-
-li:hover span {
-	width: 40px;
-	opacity: 1.0;
+li span{
+	float: right;
+	margin-right: 2%;
+	cursor: pointer;
 }
 
 input {
@@ -81,21 +82,26 @@ input {
 	border: 3px solid rgba(0,0,0,0);
 }
 
-input:focus{
-	background: #fff;
-	border: 3px solid #2980b9;
-	outline: none;
-}
-
 #content {
-	width: 50%;
+	width: 80%;
 	margin: 100px auto;
 	background: #f7f7f7;
 	box-shadow: 0 0 3px rgba(0,0,0, 0.1);
 }
 
-.completed {
-	color: gray;
-	text-decoration: line-through;
-} 
+#about{
+	width: 80%;
+	margin: 100px auto;
+ }
 
+ @keyframes slidein {
+	from {
+	  margin-left: 100%;
+	  width: 200%; 
+	}
+  
+	to {
+	  margin-left: 0%;
+	  width: 100%;
+	}
+  }

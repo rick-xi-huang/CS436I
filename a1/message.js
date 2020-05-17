@@ -12,9 +12,23 @@ let deleteallButton = document.getElementById("deleteall");
 let messagefield = document.getElementById("messagefield");
 let messageList = document.getElementById("messages");
 
-Object.values(obj).forEach((m) => {
+
+function removeParent(e) {
+    e.target.parentNode.remove();
+}
+
+function creatLi(m) {
     let li = document.createElement("li");
+    let span = document.createElement("span");
+    span.addEventListener('click', removeParent, false);
     li.appendChild(document.createTextNode(m));
+    span.innerHTML = "X";
+    li.appendChild(span);
+    return li;
+}
+
+Object.values(obj).forEach((m) => {
+    let li = creatLi(m);
     messageList.appendChild(li);
 })
 
@@ -30,8 +44,7 @@ showAbout.addEventListener("click", () => {
 
 addButton.addEventListener("click", (e) => {
     e.preventDefault();
-    let li = document.createElement("li");
-    li.appendChild(document.createTextNode(messagefield.value));
+    let li = creatLi(messagefield.value);
     messageList.appendChild(li);
     messagefield.value = "";
     });
