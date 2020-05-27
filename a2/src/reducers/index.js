@@ -1,12 +1,8 @@
 import { combineReducers } from 'redux';
+import formReducer from "./formReducer";
+import messageListReducer from './messageListReducer';
 
-const counterReducer = (count = 0, action) => {
-	if (action.type === 'INCREMENT_COUNTER') {
-		return count + action.payload;
-	}
-	return count;
-};
-
-export default combineReducers({ 
-	count: counterReducer
+export default combineReducers({
+	formStore: formReducer,
+	messageListStore: messageListReducer
 });

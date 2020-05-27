@@ -1,10 +1,12 @@
 import React from 'react';
-import Button from './Button';
+import Form from './Form';
+import MessageList from './MessageList';
 
 function App() {
   return (
     <div className="App">
-      <Button />
+      <Form />
+      <MessageList />
     </div>
   );
 }
