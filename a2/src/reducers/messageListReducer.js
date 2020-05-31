@@ -10,11 +10,12 @@ let counter = 2;
 export default function (state = initialState, action) {
     switch (action.type) {
         case messageListConstants.MESSAGELIST_ADD:
-            let newMessages = action.payload;
+            let newMessage = action.payload;
             let date = new Date();
-            newMessages["id"] = ++counter;
-            newMessages["time"] = date.getTime();
-            return {...state, messages: [...state.messages, newMessages]};
+            newMessage["id"] = ++counter;
+            newMessage["time"] = date.getTime();
+            newMessage["selected"] = false;
+            return {...state, messages: [...state.messages, newMessage]};
         case messageListConstants.MESSAGELIST_DELETE_ALL:
             return {...state, messages: []};
         case messageListConstants.MESSAGELIST_DELETE_ONE:

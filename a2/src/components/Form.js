@@ -5,7 +5,7 @@ import {updateFormMessage, updateFormName, formSubmit, addNewMessage, clearForm}
 
 class Form extends React.Component {
     render() {
-        return (<div>
+        return (<div className="content">
             <form onSubmit={(e) => {
                 e.preventDefault();
             }}>
