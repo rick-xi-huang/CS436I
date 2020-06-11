@@ -12,7 +12,7 @@ class MessageList extends React.Component {
             <h1>List View </h1>
             <ul>
                 {this.props.messages.map((item) =>
-                    <div>
+                    <div key={item.id}>
                     <li> {item.name} : {item.message}
                         <span onClick={()=>this.props.deleteOneMessage(item.id)}>  <FaTrashAlt/> </span>
                         <span onClick={()=>{this.props.toggleMessage(item.id); this.forceUpdate()}}> <FaSearch/> </span>

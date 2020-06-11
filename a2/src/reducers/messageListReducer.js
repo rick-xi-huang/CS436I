@@ -1,8 +1,8 @@
 import {messageListConstants} from "../actions";
 
 const initialState = {
-    messages: [{id: 1, name: "Tim", time: 2020/5/29, message: "Hello there", selected: false},
-               {id: 2, name: "Tim", time: 2020/5/29 , message: "What's up", selected: false}]
+    messages: [{id: 1, name: "Tim", time: 1591916288500, message: "Hello there", selected: false},
+               {id: 2, name: "Tim", time: 1591916388500 , message: "What's up", selected: false}]
 };
 
 let counter = 2;
