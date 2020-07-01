@@ -8,6 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const messages = require("../models/messages.model");
+
 const uri = "mongodb://localhost:27017/myapp";
 mongoose.connect(uri, {
   useUnifiedTopology: true,
