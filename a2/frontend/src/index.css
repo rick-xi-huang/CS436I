@@ -79,6 +79,10 @@ input {
   border: 3px solid rgba(0,0,0,0);
 }
 
+textarea {
+  margin: 13px 13px 13px 20px;
+}
+
 .content {
   width: 80%;
   margin: 100px auto;

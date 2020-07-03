@@ -10,14 +10,13 @@ class MessageEdit extends React.Component {
                 <form onSubmit={(e) => {
                     e.preventDefault();
                 }}>
-                    <h1>New Message</h1>
-                    <input id="newmessagefield" type="text" placeholder="Edit New Message"
+                    <textarea id="newmessagefield"  placeholder="Edit New Message"
                            value={this.props.message}
                            onChange={(e) => {
                                this.props.updateEditFormMessage(e);
                            }}
                     />
-                    <input id="newnamefield" type="text" placeholder="Edit New Name"
+                    <textarea id="newnamefield"  placeholder="Edit New Name"
                            value={this.props.name}
                            onChange={(e) => {
                                this.props.updateEditFormName(e);
@@ -30,7 +29,7 @@ class MessageEdit extends React.Component {
                             }}
                     >Update
                     </button>
-                    <button id="clear" onClick={() => this.props.editClearForm()}>Clear</button>
+                    {/*<button id="clear" onClick={() => this.props.editClearForm()}>Clear</button>*/}
                 </form>
             </div>
         )

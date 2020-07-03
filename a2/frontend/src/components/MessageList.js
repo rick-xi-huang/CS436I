@@ -6,6 +6,7 @@ import { FaSearch } from 'react-icons/all';
 import {FaTrashAlt} from "react-icons/all";
 import {FaEdit} from "react-icons/all";
 import MessageEdit from "./MessageEdit";
+import Spinner from "./Spinner";
 
 
 class MessageList extends React.Component {
@@ -33,6 +34,7 @@ class MessageList extends React.Component {
                     </div>
                     )}
             </ul>
+            <Spinner />
             <button id="deleteall" onClick={() => this.props.deleteAllMessagesData()}>Delete All</button>
         </div>);
     }

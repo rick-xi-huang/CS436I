@@ -22,8 +22,14 @@ export const messageListConstants = {
 	MESSAGELIST_EDIT_TOGGLE: "MESSAGELIST_EDIT_TOGGLE",
 };
 
+export const spinnerConstants = {
+	SPINNER_ON: "SPINNER_ON",
+	SPINNER_OFF: "SPINNER_OFF",
+};
+
 export const loadMessagesData = () => {
 	return async dispatch => {
+		dispatch(spinnerOn());
 		fetch("http://localhost:9000/messages", {
 			method: 'GET',
 			headers: {'Content-Type': 'application/json'},
@@ -31,6 +37,7 @@ export const loadMessagesData = () => {
 			.then((res) => res.json())
 			.then((res) => {
 				dispatch(loadMessages(res));
+				dispatch(spinnerOff());
 			})
 	}
 };
@@ -187,3 +194,14 @@ export const toggleEditMessage = (id) => {
 	}
 };
 
+export const spinnerOn = () => {
+	return{
+		type: spinnerConstants.SPINNER_ON
+	}
+};
+
+export const spinnerOff = () => {
+	return{
+		type: spinnerConstants.SPINNER_OFF
+	}
+};

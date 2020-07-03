@@ -28,7 +28,7 @@ export default function (state = initialState, action) {
             return {...state, messages: [...state.messages]};
         case messageListConstants.MESSAGELIST_EDIT_TOGGLE:
             let editId = action.payload;
-            state.messages.forEach(item => {if (item._id === editId) {item.edit = !item.edit}});
+            state.messages.forEach(item => {if (item._id === editId) {item.edit = !item.edit} else {item.edit = false}});
             return {...state, messages: [...state.messages]};
         default:
             return state;
