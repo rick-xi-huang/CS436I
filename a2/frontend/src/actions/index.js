@@ -18,7 +18,8 @@ export const messageListConstants = {
 	MESSAGELIST_UPDATE: "MESSAGELIST_UPDATE",
 	MESSAGELIST_DELETE_ALL: "MESSAGELIST_DELETE",
 	MESSAGELIST_DELETE_ONE: "MESSAGELIST_DELETE_ONE",
-	MESSAGELIST_TOGGLE: "MESSAGELIST_TOGGLE",
+	MESSAGELIST_DETAIL_TOGGLE: "MESSAGELIST_DETAIL_TOGGLE",
+	MESSAGELIST_EDIT_TOGGLE: "MESSAGELIST_EDIT_TOGGLE",
 };
 
 export const loadMessagesData = () => {
@@ -172,9 +173,16 @@ export const deleteOneMessage = (id) => {
 	}
 };
 
-export const toggleMessage = (id) => {
+export const toggleDetailMessage = (id) => {
 	return{
-		type: messageListConstants.MESSAGELIST_TOGGLE,
+		type: messageListConstants.MESSAGELIST_DETAIL_TOGGLE,
+		payload: id
+	}
+};
+
+export const toggleEditMessage = (id) => {
+	return{
+		type: messageListConstants.MESSAGELIST_EDIT_TOGGLE,
 		payload: id
 	}
 };

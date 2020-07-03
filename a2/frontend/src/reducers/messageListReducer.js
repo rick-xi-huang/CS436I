@@ -10,7 +10,8 @@ export default function (state = initialState, action) {
             return {...state, messages: action.payload};
         case messageListConstants.MESSAGELIST_ADD:
             let newMessage = action.payload;
-            newMessage["selected"] = false;
+            newMessage["detail"] = false;
+            newMessage["edit"] = false;
             return {...state, messages: [...state.messages, newMessage]};
         case messageListConstants.MESSAGELIST_UPDATE:
             let updatedMessage = action.payload.message;
@@ -21,9 +22,13 @@ export default function (state = initialState, action) {
         case messageListConstants.MESSAGELIST_DELETE_ONE:
             let target = action.payload;
             return {...state, messages: state.messages.filter(item => item._id !== target)};
-        case messageListConstants.MESSAGELIST_TOGGLE:
-            let selected = action.payload;
-            state.messages.forEach(item => {if (item._id === selected) {item.selected = !item.selected}});
+        case messageListConstants.MESSAGELIST_DETAIL_TOGGLE:
+            let detailId = action.payload;
+            state.messages.forEach(item => {if (item._id === detailId) {item.detail = !item.detail}});
+            return {...state, messages: [...state.messages]};
+        case messageListConstants.MESSAGELIST_EDIT_TOGGLE:
+            let editId = action.payload;
+            state.messages.forEach(item => {if (item._id === editId) {item.edit = !item.edit}});
             return {...state, messages: [...state.messages]};
         default:
             return state;
