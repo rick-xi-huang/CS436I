@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateFormMessage, updateFormName, formSubmit, addNewMessage, clearForm} from '../actions/index.js';
+import {updateFormMessage, updateFormName, formSubmit, addNewMessageData, clearForm} from '../actions/index.js';
 
 
 class Form extends React.Component {
@@ -25,7 +25,7 @@ class Form extends React.Component {
                 <button type="submit" id="add"
                         onClick={() => {
                             this.props.formSubmit();
-                            this.props.addNewMessage(this.props.name, this.props.message)
+                            this.props.addNewMessageData(this.props.name, this.props.message)
                         }}
                 >Add
                 </button>
@@ -47,6 +47,6 @@ export default connect(mapStateToProps, {
     updateFormMessage,
     updateFormName,
     formSubmit,
-    addNewMessage,
+    addNewMessageData,
     clearForm
 })(Form);

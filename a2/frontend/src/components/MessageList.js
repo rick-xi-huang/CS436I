@@ -1,30 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNewMessage, deleteOneMessage, toggleMessage, deleteAllMessages} from '../actions/index.js';
+import { loadMessagesData, addNewMessageData, deleteOneMessageData, toggleMessage, deleteAllMessagesData} from '../actions/index.js';
 import MessageCard from "./MessageCard";
 import { FaSearch } from 'react-icons/all';
 import {FaTrashAlt} from "react-icons/all";
+import MessageEdit from "./MessageEdit";
 
 
 class MessageList extends React.Component {
+    componentDidMount() {
+        this.props.loadMessagesData();
+    }
+
     render() {
         return (<div className="content">
             <h1>List View </h1>
             <ul>
                 {this.props.messages.map((item) =>
-                    <div key={item.id}>
+                    <div key={item._id}>
                     <li> {item.name} : {item.message}
-                        <span onClick={()=>this.props.deleteOneMessage(item.id)}>  <FaTrashAlt/> </span>
-                        <span onClick={()=>{this.props.toggleMessage(item.id); this.forceUpdate()}}> <FaSearch/> </span>
+                        <span onClick={()=>this.props.deleteOneMessageData(item._id)}>  <FaTrashAlt/> </span>
+                        <span onClick={()=>this.props.toggleMessage(item._id)}> <FaSearch/> </span>
                     </li>
                         {item.selected &&
-                        <MessageCard id={item.id} name={item.name} message={item.message} time={item.time}
+                        <MessageCard id={item._id} name={item.name} message={item.message} time={item.time}
                                      selected={item.selected} toggleSelected={this.props.toggleMessage}
-                                     deleteSelected={this.props.deleteOneMessage}/>
-                        }</div>
+                                     deleteSelected={this.props.deleteOneMessageData}/>
+                        }
+                    <MessageEdit id = {item._id} />
+                    </div>
                     )}
             </ul>
-            <button id="deleteall" onClick={() => this.props.deleteAllMessages()}>Delete All</button>
+            <button id="deleteall" onClick={() => this.props.deleteAllMessagesData()}>Delete All</button>
         </div>);
     }
 }
@@ -34,4 +41,4 @@ const mapStateToProps = (state) => { //name is by convention
     return { messages: state.messageListStore.messages}; //now it will appear as props
 };
 
-export default connect(mapStateToProps, { addNewMessage, deleteOneMessage, toggleMessage, deleteAllMessages })(MessageList);
+export default connect(mapStateToProps, { loadMessagesData, addNewMessageData, deleteOneMessageData, toggleMessage, deleteAllMessagesData })(MessageList);
