@@ -21,7 +21,7 @@ connection.once("open", () => {
 
 router.get("/", (req, res) => {
   messages.find()
-      .then((messages) => res.json(messages))
+      .then((messages) => setTimeout((function() {res.send(messages)}), 1000))
       .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -41,7 +41,7 @@ router.post("/add", (req, res) => {
 
   newMessage
       .save()
-      .then((message) => res.json(message))
+      .then((message) => setTimeout((function() {res.send(message)}), 1000))
       .catch((err) => res.status(400).json("Error: " + err));
 });
 
@@ -71,7 +71,7 @@ router.post("/update/:id", (req, res) => {
         message.message = req.body.message;
         message
             .save()
-            .then((message) => res.json(message))
+            .then((message) => setTimeout((function() {res.send(message)}), 1000))
             .catch((err) => res.status(400).json("Error: " + err));
       })
       .catch((err) => res.status(400).json("Error: " + err));

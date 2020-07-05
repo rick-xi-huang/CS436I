@@ -44,6 +44,7 @@ export const loadMessagesData = () => {
 
 export const addNewMessageData = (name, message) => {
 	return async dispatch => {
+		dispatch(spinnerOn());
 		fetch("http://localhost:9000/messages/add", {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
@@ -52,12 +53,14 @@ export const addNewMessageData = (name, message) => {
 			.then((res) => res.json())
 			.then((res) => {
 				dispatch(addNewMessage(res));
+				dispatch(spinnerOff());
 			})
 	}
 };
 
 export const updateMessageData = (id, name, message) => {
 	return async dispatch => {
+		dispatch(spinnerOn());
 		fetch(`http://localhost:9000/messages/update/${id}`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
@@ -66,6 +69,7 @@ export const updateMessageData = (id, name, message) => {
 			.then((res) => res.json())
 			.then((res) => {
 				dispatch(updateMessage(id, res));
+				dispatch(spinnerOff());
 			})
 	}
 };
