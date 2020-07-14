@@ -14,7 +14,8 @@
     "mongoose": "^5.9.20",
     "mongoose-findorcreate": "^3.0.0",
     "morgan": "~1.9.1",
-    "uuid": "^8.2.0"
+    "uuid": "^8.2.0",
+    "dotenv": "latest"
   },
   "devDependencies": {
     "cors": "^2.8.5"

@@ -30,7 +30,7 @@ export const spinnerConstants = {
 export const loadMessagesData = () => {
 	return async dispatch => {
 		dispatch(spinnerOn());
-		fetch("http://localhost:9000/messages", {
+		fetch("/messages", {
 			method: 'GET',
 			headers: {'Content-Type': 'application/json'},
 		})
@@ -45,7 +45,7 @@ export const loadMessagesData = () => {
 export const addNewMessageData = (name, message) => {
 	return async dispatch => {
 		dispatch(spinnerOn());
-		fetch("http://localhost:9000/messages/add", {
+		fetch("/messages/add", {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ name: name, message: message }),
@@ -61,7 +61,7 @@ export const addNewMessageData = (name, message) => {
 export const updateMessageData = (id, name, message) => {
 	return async dispatch => {
 		dispatch(spinnerOn());
-		fetch(`http://localhost:9000/messages/update/${id}`, {
+		fetch(`/messages/update/${id}`, {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({ name: name, message: message }),
@@ -76,7 +76,7 @@ export const updateMessageData = (id, name, message) => {
 
 export const deleteOneMessageData = (id) => {
 	return async dispatch => {
-		fetch(`http://localhost:9000/messages/delete/${id}`, {
+		fetch(`/messages/delete/${id}`, {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())
@@ -88,7 +88,7 @@ export const deleteOneMessageData = (id) => {
 
 export const deleteAllMessagesData = () => {
 	return async dispatch => {
-		fetch("http://localhost:9000/messages/deleteall", {
+		fetch("/messages/deleteall", {
 			method: 'DELETE',
 		})
 			.then((res) => res.json())

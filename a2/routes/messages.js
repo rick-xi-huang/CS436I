@@ -1,23 +1,8 @@
 var express = require('express');
 var router = express.Router();
-
-
-const mongoose = require("mongoose");
 const { v4: uuidv4 } = require('uuid');
 
 const messages = require("../models/messages.model");
-
-const uri = "mongodb://localhost:27017/myapp";
-mongoose.connect(uri, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
-
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
-});
 
 router.get("/", (req, res) => {
   messages.find()
